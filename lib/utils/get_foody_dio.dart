@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 
-import 'token_inteceptor.dart';
+import 'token_interceptor.dart';
 
 Dio getFoodyDio({
   TokenInterceptor? tokenInterceptor,

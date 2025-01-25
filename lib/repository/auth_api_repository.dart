@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:foody_api_client/dto/request/user_login_request_dto.dart';
 import 'package:foody_api_client/dto/response/auth_response_dto.dart';
+import 'package:foody_api_client/dto/response/user_response_dto.dart';
 import 'package:retrofit/http.dart';
 
 import '../dto/request/user_registration_request_dto.dart';
@@ -24,5 +25,8 @@ abstract class AuthApiRepository {
   Future<AuthResponseDto> login(@Body() UserLoginRequestDto _);
 
   @GET('/user')
-  Future<EmployeeUserResponseDto> getAuthenticatedUser();
+  Future<EmployeeUserResponseDto> getAuthenticatedEmployee();
+
+  @GET('/user')
+  Future<UserResponseDto> getAuthenticatedUser();
 }
