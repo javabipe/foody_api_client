@@ -79,6 +79,36 @@ class _BookingsApiRepository implements BookingsApiRepository {
   }
 
   @override
+  Future<List<BookingResponseDto>> getCurrentByCustomer() async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
+    final _result = await _dio
+        .fetch<List<dynamic>>(_setStreamType<List<BookingResponseDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/customer/current',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    var value = _result.data!
+        .map((dynamic i) =>
+            BookingResponseDto.fromJson(i as Map<String, dynamic>))
+        .toList();
+    return value;
+  }
+
+  @override
   Future<BookingResponseDto> save(BookingRequestDto _) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
