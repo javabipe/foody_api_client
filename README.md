@@ -46,8 +46,6 @@ Future<void> callApi<T>({
   bool throwException = false,
 })
 ```
-> [!NOTE]  
-> The generic type (`T`) represents the class that must return `onComplete`, which is the equivalent response type of the [API](#api-repositories) call you are going to make.
 
 | Parameter                      | Description                                                                                                           | Required           |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|:------------------:|
@@ -57,6 +55,9 @@ Future<void> callApi<T>({
 | `onError`                      | Run when the call returned an unknown generic error.                                                                  | :x:                |
 | `errorToEmit`                  | Run when an exception is encountered (`onFailed` or `onError`). An automatically generated error message is returned. | :x:                |
 | `throwException`               | If you want to handle the exception manually and not supress it.                                                      | :x:                |
+
+> [!NOTE]  
+> The generic type (`T`) represents the class that must return `onComplete`, which is the equivalent response type of the [API](#api-repositories) call you are going to make.
 
 *Example (login use case*):
 ```dart
