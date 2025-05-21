@@ -4,7 +4,7 @@ import 'token_interceptor.dart';
 
 Dio getFoodyDio({
   TokenInterceptor? tokenInterceptor,
-  String baseUrl = 'https://foody.convertino.cloud/api/v1',
+  String baseUrl = 'http://127.0.0.1:8080/api/v1',
 }) {
   Dio dio = Dio(
     BaseOptions(
